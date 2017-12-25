@@ -1,0 +1,27 @@
+.tags{
+text-align:center
+}
+.tags>li{
+width:39px;
+height:5px;
+display:inline-block;
+border:1px solid green;
+border-radius: 5px;;
+}
+.tags>li:hover{ cursor: pointer;
+} 
+.tags>li.active{background:green}
+a{
+text-decoration:none; 
+font-size:35px;
+}
+.images{
+display: flex;
+transition: all 0.7s
+}
+#window{
+width:224px;
+border:1px solid red;
+overflow:hidden;
+margin:0 auto;
+}
