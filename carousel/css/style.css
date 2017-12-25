@@ -2,7 +2,7 @@
 text-align:center
 }
 .tags>li{
-width:39px;
+width:36px;
 height:5px;
 display:inline-block;
 border:1px solid green;
@@ -21,7 +21,7 @@ transition: all 0.7s
 }
 #window{
 width:224px;
-border:1px solid red;
+box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.75);
 overflow:hidden;
 margin:0 auto;
 }

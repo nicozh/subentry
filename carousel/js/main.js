@@ -8,7 +8,7 @@ for(let i=0;i<children.length;i++){
       transform: 'translate(' + p + 'px)'
     })
 
-  let n=i  
+  n=i  
   children.eq(n).addClass('active')
  .siblings('.active').removeClass('active')
    
