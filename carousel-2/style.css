@@ -1,0 +1,19 @@
+
+ *{ margin: 0px; 
+    padding: 0px;
+}
+ li{
+    list-style: none;
+}
+ .content{
+    width: 224px; 
+    overflow: hidden;
+    margin:50px auto;
+     }
+.content ul{ 
+    width: 224px; 
+    display: flex;
+}
+.content ul li { 
+    display: block;
+}
