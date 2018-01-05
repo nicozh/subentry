@@ -10,33 +10,27 @@ for(let i=0;i<children.length;i++){
 
   n=i  
   children.eq(n).addClass('active')
- .siblings('.active').removeClass('active')
-   
-      
-    
+ .siblings('.active').removeClass('active')    
   })
 }
-
 
 n=0
 
  timerId=setInterval(()=>{
- children.eq(n%6).trigger('click')
+ children.eq(n%4).trigger('click')
  
   n+=1
-},1000)
+},5000)
 
-
-$('#window').on('mouseenter', function() {
+$('.window').on('mouseenter', function() {
   window.clearInterval(timerId)
 })
 
+$('.window').on('mouseleave', function() {
 
-$('#window').on('mouseleave', function() {
- 
   timerId=setInterval(()=>{
-  children.eq(n%6).trigger('click')
+  children.eq(n%4).trigger('click')
   n+=1
-},2000)
+},5000)
   
 })
