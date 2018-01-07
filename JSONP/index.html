@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP</title>
+</head>
+<body>
+    <h5>你的账户余额是<span id="amount">100</span></h5>
+    <button id="button">支付</button>
+    <script>
+        window.yyy=function(result){
+            if(result === 'success'){
+                amount.innerText=amount.innerText -1               
+            }else{
+
+            }
+        }
+        button.addEventListener('click',(e)=>{
+            let script = document.createElement('script')
+            script.src = 'http://jack.com:8002/pay?callbackName=yyy'
+            document.body.appendChild(script)
+            script.onload=function(e){
+                e.currentTarget.remove()
+            }
+            script.onerror=function(e){
+                alert('fail')
+                e.currentTarget.remove()
+            }
+        })
+    </script>
+</body>
+</html>
