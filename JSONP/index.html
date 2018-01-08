@@ -7,26 +7,32 @@
     <title>JSONP</title>
 </head>
 <body>
-    <h5>你的账户余额是<span id="amount">100</span></h5>
+    <h4>你的账户余额是<span id="amount">&amount&</span></h4>
     <button id="button">支付</button>
     <script>
-        window.yyy=function(result){
-            if(result === 'success'){
-                amount.innerText=amount.innerText -1               
-            }else{
-
-            }
-        }
+        
         button.addEventListener('click',(e)=>{
             let script = document.createElement('script')
-            script.src = 'http://jack.com:8002/pay?callbackName=yyy'
+            let functionName='jsonp'+parseInt(Math.random()*10000,10)
+            script.src = 'http://jack.com:8002/pay?callback='+functionName
             document.body.appendChild(script)
+            window[functionName]=function(result){
+            if(result === 'success'){
+                amount.innerText=amount.innerText -1
+                alert('成功支付1元')               
+            }else{
+                alert('支付失败')
+            }
+            console.log(result)
+        }
             script.onload=function(e){
                 e.currentTarget.remove()
+                delete window[functionName]
             }
             script.onerror=function(e){
                 alert('fail')
                 e.currentTarget.remove()
+                delete window[functionName]
             }
         })
     </script>
